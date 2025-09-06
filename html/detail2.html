@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>상세보기2</title>
+  <title>공고 상세보기</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -25,11 +25,13 @@
       overflow: hidden;
     }
 
+    /* 상단 */
     header {
       display: flex;
       align-items: center;
-      padding: 12px 16px;
-      font-size: 18px;
+      padding: 14px 16px;
+      font-size: 16px;
+      font-weight: bold;
       border-bottom: 1px solid #eee;
       flex-shrink: 0;
     }
@@ -41,99 +43,93 @@
       cursor: pointer;
     }
 
+    /* 콘텐츠 */
     .content {
       flex: 1;
       overflow-y: auto;
       background: #fafafa;
+      padding-bottom: 80px;
     }
 
     .thumbnail {
-      height: 160px;
-      background-image: url('image/room.jpg'); /* 룸 이미지 */
+      height: 200px;
+      background-image: url('image/room.jpg'); /* 숙소 이미지 */
       background-size: cover;
       background-position: center;
     }
 
-    .info-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-      background: #fff;
-    }
-    .info-left h2 {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .info-left p {
-      font-size: 13px;
-      color: #666;
-    }
-    .badge-row {
-      margin-top: 6px;
-    }
-    .badge {
-      display: inline-block;
-      font-size: 11px;
-      color: #555;
-      background: #f2f2f2;
-      border-radius: 10px;
-      padding: 2px 8px;
-      margin-right: 4px;
-    }
-    .info-right {
-      font-size: 14px;
-      font-weight: bold;
-      color: #333;
-    }
-
+    /* 탭 */
     .tabs {
       display: flex;
-      border-bottom: 1px solid #eee;
-      background: #fff;
-      padding: 10px 0;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px;
     }
-    .tabs a {
+    .tabs button {
       flex: 1;
-      margin: 0 10px;
       padding: 8px 0;
-      text-align: center;
-      font-size: 14px;
       border: 1px solid #ccc;
       border-radius: 20px;
+      font-size: 14px;
       cursor: pointer;
-      text-decoration: none;
-      color: #000;
+      background: #fff;
     }
-    .tabs a.active {
+    .tabs button.active {
       background: #000;
       color: #fff;
       border-color: #000;
     }
 
-    .detail {
-      padding: 10px 20px;
-      font-size: 14px;
+    /* 상세 박스 */
+    .detail-box {
+      margin: 0 16px;
       background: #fff;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 16px;
     }
     .detail-row {
       display: flex;
       justify-content: space-between;
-      padding: 6px 0;
-      border-bottom: 1px solid #f0f0f0;
+      margin-bottom: 12px;
+      font-size: 14px;
     }
     .detail-row span:first-child {
-      color: #555;
+      color: #666;
     }
 
-    /* 하단 버튼 */
+    /* 옵션 뱃지 */
+    .options {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .option {
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 13px;
+      border: 1px solid #1ec800;
+      color: #1ec800;
+      background: #f0fff5;
+      font-weight: 500;
+    }
+
+    /* 세부 규정 */
+    .rules {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 13px;
+      color: #333;
+      min-height: 60px;
+    }
+
+    /* 하단 */
     .bottom-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
+      padding: 14px 16px;
       border-top: 1px solid #eee;
       background: #fff;
       flex-shrink: 0;
@@ -161,6 +157,7 @@
       text-align: center;
       line-height: 42px;
       cursor: pointer;
+      color: #e74c3c;
     }
   </style>
 </head>
@@ -169,38 +166,31 @@
     <!-- 상단 -->
     <header>
       <a href="home.html" class="back">←</a>
+      공고 상세보기
     </header>
 
-    <!-- 스크롤 콘텐츠 -->
+    <!-- 콘텐츠 -->
     <div class="content">
-      <div class="thumbnail"></div> <!-- 사과 이미지 -->
-
-      <div class="info-bar">
-        <div class="info-left">
-          <h2>사과 수확 보조 (1주)</h2>
-          <p>12,000원/시간 · 08:00 - 17:00</p>
-          <div class="badge-row">
-            <span class="badge">거리 1.2km</span>
-            <span class="badge">중식제공</span>
-          </div>
-        </div>
-        <div class="info-right">D-3</div>
-      </div>
+      <div class="thumbnail"></div>
 
       <!-- 탭 -->
       <div class="tabs">
-        <a href="detail1.html" class=>업무</a>
-        <a href="detail2.html" class="active">숙소</a>
+        <button onclick="location.href='detail1.html'">업무</button>
+        <button class="active">숙소</button>
       </div>
 
-      <div class="detail">
+      <!-- 상세 내용 -->
+      <div class="detail-box">
         <div class="detail-row"><span>유형</span><span>게스트하우스</span></div>
-        <div class="detail-row"><span>모집인원</span><span>0명</span></div>
-        <div class="detail-row"><span>업무 내용</span><span>사과 수확/운반 보조, 상자 포장</span></div>
-        <div class="detail-row"><span>근무지</span><span>경북 청송군 XX면<br>XX리</span></div>
-        <div class="detail-row"><span>일정</span><span>09/15~09/21<br>08:00~17:00 (휴게1h)</span></div>
-        <div class="detail-row"><span>식사/교통</span><span>중식 제공</span></div>
-        <div class="detail-row"><span>장비</span><span>장갑 제공</span></div>
+        <div class="detail-row"><span>비용</span><span>무료</span></div>
+
+        <div class="options">
+          <div class="option">조식제공</div>
+          <div class="option">금연</div>
+        </div>
+
+        <div class="detail-row"><span>세부 규정</span></div>
+        <div class="rules">22시 이후에는 정숙해주세요.</div>
       </div>
     </div>
 
